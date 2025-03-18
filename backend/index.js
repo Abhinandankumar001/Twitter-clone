@@ -20,11 +20,30 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 app.use(cookieParser());
-const corsOptions = {
-    origin:"https://twitter-clone-kw2p.vercel.app",
-    credentials:true
-}
-app.use(cors(corsOptions));
+
+const allowedOrigins = [
+  "https://twitter-clone-kw2p.vercel.app",
+  "http://localhost:3000" // For local development
+];
+
+app.use(
+    cors({
+        origin: function (origin, callback) {
+            if (!origin || allowedOrigins.includes(origin)) {
+                callback(null, true);
+            } else {
+                callback(new Error("Not allowed by CORS"));
+            }
+        },
+        credentials: true,
+    })
+);
+
+// Add a route to show backend status
+app.get("/status", (req, res) => {
+    res.send("Backend is running");
+});
+
 
 // api
 app.use("/api/v1/user",userRoute);
