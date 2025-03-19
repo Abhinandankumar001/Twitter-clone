@@ -33,7 +33,7 @@ app.use(
   
 
 // Add a route to show backend status
-app.get("/status", (req, res) => {
+app.get("/", (req, res) => {
     res.send("Backend is running");
 });
 
