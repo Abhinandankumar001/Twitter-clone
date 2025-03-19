@@ -12,7 +12,7 @@ dotenv.config({
 })
 databaseConnection();
 const app = express(); 
-const __dirname = path.resolve();
+// const __dirname = path.resolve();
 
 // middlewares
 app.use(express.urlencoded({
@@ -42,10 +42,10 @@ app.get("/status", (req, res) => {
 app.use("/api/v1/user",userRoute);
 app.use("/api/v1/tweet", tweetRoute);
  
-app.use(express.static(path.join(__dirname, "/frontend/dist")));
-app.get("*", (req, res) => {
-	res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
-});
+// app.use(express.static(path.join(__dirname, "/frontend/dist")));
+// app.get("*", (req, res) => {
+// 	res.sendFile(path.resolve(__dirname, "frontend", "dist", "index.html"));
+// });
 
 app.listen(process.env.PORT || 3001, () => {
     console.log(`Server is running on port ${process.env.PORT || 3001}`);
