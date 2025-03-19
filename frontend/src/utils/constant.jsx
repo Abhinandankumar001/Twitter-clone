@@ -1,5 +1,5 @@
-export const USER_API_END_POINT = `${import.meta.env.VITE_REACT_VITE_URL}/api/v1/user`;
-export const TWEET_API_END_POINT = `${import.meta.env.VITE_REACT_VITE_URL}/api/v1/tweet`;
+export const USER_API_END_POINT = `${import.meta.env.REACT_VITE_URL}/api/v1/user`;
+export const TWEET_API_END_POINT = `${import.meta.env.REACT_VITE_URL}/api/v1/tweet`;
 
 export const timeSince = (timestamp) => {
     let time = Date.parse(timestamp);
